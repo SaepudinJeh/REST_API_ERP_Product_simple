@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,8 +8,21 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const mongoose = require('mongoose');
 
 var app = express();
+
+// Mongoose connect
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, "connection error: "))
+db.once("open", function () {
+  console.log("Mongo connected successfully");
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
