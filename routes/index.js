@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const users = require('./users');
+const customer = require('./customer.route');
 const ticket = require('./ticket.routes');
 
 /* GET home page. */
@@ -12,6 +12,6 @@ router.get('/', (req, res) => {
 
 module.exports = (app) => {
   app.use(router);
-  app.use(users);
+  app.use(customer);
   app.use(ticket);
 };

@@ -28,7 +28,7 @@ const getTicketController = async (req, res, next) => {
     if (tickets.length < 1) {
       return res.json({
         statusCode: 200,
-        message: 'Cant result successfully',
+        message: 'Cant result tickets',
         length: tickets?.length,
         times: Date.now(),
         tickets,
