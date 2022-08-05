@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+
+const router = express.Router();
+
+const users = require('./users');
+const ticket = require('./ticket.routes');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res) => {
   res.render('index', { title: 'Express' });
 });
 
-module.exports = router;
+module.exports = (app) => {
+  app.use(router);
+  app.use(users);
+  app.use(ticket);
+};
