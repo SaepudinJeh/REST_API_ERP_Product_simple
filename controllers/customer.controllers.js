@@ -1,6 +1,6 @@
 const createHttpError = require('http-errors');
 const { Customer } = require('../models');
-const { createCustomerValidation, customerIdValidation, updateCustomerValidation } = require('../validations');
+const { createCustomerValidation, iDValidation, updateCustomerValidation } = require('../validations');
 
 const createCustomerController = async (req, res, next) => {
   try {
@@ -33,7 +33,7 @@ const getCustomersController = async (req, res, next) => {
 
     return res.json({
       statusCode: 200,
-      message: 'Ticket result successfully',
+      message: 'Customers result successfully',
       customers: customer,
     });
   } catch (error) {
@@ -65,7 +65,7 @@ const updateCustomer = async (req, res, next) => {
 
     return res.json({
       statusCode: 200,
-      message: 'Updated ticket',
+      message: 'Updated customer successfully',
     });
   } catch (error) {
     console.log(error?.message);
@@ -79,7 +79,7 @@ const deleteAllCustomer = async (req, res, next) => {
 
     return res.json({
       statusCode: 200,
-      message: 'Tickets deleted successfully',
+      message: 'Customer deleted successfully',
     });
   } catch (error) {
     console.log(error?.message);
@@ -89,13 +89,13 @@ const deleteAllCustomer = async (req, res, next) => {
 
 const deleteCustomerById = async (req, res, next) => {
   try {
-    const body = await customerIdValidation.validateAsync(req.body);
+    const body = await iDValidation.validateAsync(req.body);
 
     await Customer.findOneAndDelete(body);
 
     return res.json({
       statusCode: 200,
-      message: 'Ticket deleted successfully',
+      message: 'Customer deleted successfully',
     });
   } catch (error) {
     console.log(error?.message);

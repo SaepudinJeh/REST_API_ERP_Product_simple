@@ -14,6 +14,14 @@ const {
   deleteAllCustomer,
 } = require('./customer.controllers');
 
+const {
+  createProductController,
+  getProductsController,
+  deleteProductById,
+  updateProduct,
+  deleteAllProduct,
+} = require('./product.controller');
+
 module.exports = {
   createTicketController,
   getTicketController,
@@ -25,4 +33,9 @@ module.exports = {
   updateCustomer,
   deleteCustomerById,
   deleteAllCustomer,
+  createProductController,
+  getProductsController,
+  deleteProductById,
+  updateProduct,
+  deleteAllProduct,
 };

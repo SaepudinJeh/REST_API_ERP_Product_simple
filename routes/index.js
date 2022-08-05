@@ -4,6 +4,7 @@ const router = express.Router();
 
 const customer = require('./customer.route');
 const ticket = require('./ticket.routes');
+const product = require('./product.route');
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -14,4 +15,5 @@ module.exports = (app) => {
   app.use(router);
   app.use(customer);
   app.use(ticket);
+  app.use(product);
 };

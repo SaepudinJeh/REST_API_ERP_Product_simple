@@ -58,7 +58,7 @@ const updateStatusTicket = async (req, res, next) => {
 
     return res.json({
       statusCode: 200,
-      message: 'Updated ticket',
+      message: 'Updated ticket successfully',
       statusTicket: update,
     });
   } catch (error) {
