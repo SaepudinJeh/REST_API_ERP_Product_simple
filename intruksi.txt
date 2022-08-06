@@ -1,4 +1,7 @@
 Sebelum menjalankan
 
 1. install dependencies => npm install || yarn
+3. Untuk menjalankan => npm run start || yarn start
 2. untuk dokumentasi REST API, buka POSTMAN, import file yang ada di folder _DOC_API
+
+Thank You :)
