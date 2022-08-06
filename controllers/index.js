@@ -25,7 +25,6 @@ const {
 const {
   createOrder,
   allOrders,
-  deleteAllOrder,
   deleteOrderById,
   addOrder,
   reduceOrder,
@@ -49,7 +48,6 @@ module.exports = {
   deleteAllProduct,
   createOrder,
   allOrders,
-  deleteAllOrder,
   deleteOrderById,
   addOrder,
   reduceOrder,

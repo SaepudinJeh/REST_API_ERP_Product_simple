@@ -71,25 +71,19 @@ const allOrders = async (req, res, next) => {
   }
 };
 
-const deleteAllOrder = async (req, res, next) => {
-  try {
-    await Order.deleteMany({});
-
-    return res.json({
-      statusCode: 200,
-      message: 'Delete orders successfully',
-    });
-  } catch (error) {
-    console.log(error?.message);
-    return next(createHttpError.BadRequest(error?.message));
-  }
-};
-
 const deleteOrderById = async (req, res, next) => {
   try {
     const body = await iDValidation.validateAsync(req.body);
 
-    await Order.findOneAndDelete(body);
+    const order = await Order.findOne(body).populate('product');
+
+    await Product.findOneAndUpdate(
+      { _id: order?.product?._id },
+      { $inc: { qty: Number(order?.qty) } },
+      { new: true },
+    );
+
+    await Order.deleteOne(body);
 
     return res.json({
       statusCode: 200,
@@ -193,7 +187,6 @@ const addOrder = async (req, res, next) => {
 module.exports = {
   createOrder,
   allOrders,
-  deleteAllOrder,
   deleteOrderById,
   reduceOrder,
   addOrder,
