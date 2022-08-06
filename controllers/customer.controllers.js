@@ -12,7 +12,7 @@ const createCustomerController = async (req, res, next) => {
 
     return res.status(201).json({
       statusCode: 201,
-      message: 'Created ticket successfully',
+      message: 'Created customer successfully',
     });
   } catch (error) {
     console.log(error?.message);

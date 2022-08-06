@@ -34,7 +34,7 @@ const getProductsController = async (req, res, next) => {
     return res.json({
       statusCode: 200,
       message: 'Product result successfully',
-      customers: customer,
+      products: customer,
     });
   } catch (error) {
     console.log(error?.message);

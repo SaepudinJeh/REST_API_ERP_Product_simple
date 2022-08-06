@@ -5,6 +5,8 @@ const iDValidation = require('./id.validation');
 const updateCustomerValidation = require('./update.customer.validation');
 const createProductValidation = require('./create.product.validation');
 const updateProductValidation = require('./update.product.validation');
+const orderValidation = require('./order.validation');
+const updateOrderValidation = require('./update.order.validation');
 
 module.exports = {
   createTicketValidation,
@@ -14,4 +16,6 @@ module.exports = {
   updateCustomerValidation,
   createProductValidation,
   updateProductValidation,
+  orderValidation,
+  updateOrderValidation,
 };

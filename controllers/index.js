@@ -22,6 +22,15 @@ const {
   deleteAllProduct,
 } = require('./product.controller');
 
+const {
+  createOrder,
+  allOrders,
+  deleteAllOrder,
+  deleteOrderById,
+  addOrder,
+  reduceOrder,
+} = require('./order.controllers');
+
 module.exports = {
   createTicketController,
   getTicketController,
@@ -38,4 +47,10 @@ module.exports = {
   deleteProductById,
   updateProduct,
   deleteAllProduct,
+  createOrder,
+  allOrders,
+  deleteAllOrder,
+  deleteOrderById,
+  addOrder,
+  reduceOrder,
 };

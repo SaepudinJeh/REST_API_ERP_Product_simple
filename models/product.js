@@ -18,6 +18,7 @@ const ProductSchema = mongoose.Schema({
     type: Number,
     required: true,
     default: 1,
+    min: 0,
   },
   site: {
     type: String,
