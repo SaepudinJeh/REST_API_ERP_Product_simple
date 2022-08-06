@@ -52,14 +52,11 @@ const updateStatusTicket = async (req, res, next) => {
   try {
     const body = await sortOrderValidation.validateAsync(req.body);
 
-    console.log(body);
-
-    const update = await Ticket.where(body).updateOne({ $set: { isActive: false } });
+    await Ticket.where(body).updateOne({ $set: { isActive: false } });
 
     return res.json({
       statusCode: 200,
       message: 'Updated ticket successfully',
-      statusTicket: update,
     });
   } catch (error) {
     console.log(error?.message);
